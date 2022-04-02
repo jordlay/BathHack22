@@ -1,0 +1,7 @@
+{
+  "name": "SmartLife",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
