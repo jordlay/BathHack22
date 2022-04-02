@@ -1,3 +1,23 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-content>
+    <ion-router-outlet>
+    </ion-router-outlet>
+  </ion-content>
+  <ion-footer>
+    <ion-button class="nextLine" href='/home' >
+      <ion-icon name="arrow-back-outline"></ion-icon>
+      <br><ion-label>Back</ion-label>
+    </ion-button>
+    <ion-button href='/home' >
+      <ion-icon name="home"></ion-icon>
+      <br><ion-label>Home</ion-label>
+    </ion-button>
+    <ion-button href='/settings' >
+      <ion-icon name="settings"></ion-icon>
+      <br><ion-label>Settings</ion-label>
+    </ion-button>
+  <!-- </ion-tab-bar> -->
+  </ion-footer> 
 </ion-app>
+
