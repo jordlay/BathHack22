@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class MedicationPage implements OnInit {
 
   constructor() { }
-
+  medicationAddedBool = false;
+  selectedMeds = false;
+  medications = ''
+  submitBool = false;
   ngOnInit() {
   }
-
+  // selectedMedications(){
+  //   this.selectedMeds=true
+  // }
 }

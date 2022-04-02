@@ -1,9 +1,55 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>medication</ion-title>
-  </ion-toolbar>
+    <ion-title>Medication Tracker</ion-title>
 </ion-header>
 
 <ion-content>
-
+<div *ngIf="!medicationAddedBool">
+  <ion-button (click)="medicationAddedBool=true">Add Medication</ion-button>
+</div>
+<div *ngIf="medicationAddedBool && !selectedMeds">
+  Search for your condition and select from the dropdown
+  <ion-item>
+    <ion-label>Medication</ion-label>
+    <ion-select (ionChange)="this.selectedMeds=true" [(ngModel)]="medications" multiple="true" cancelText="Cancel" okText="Submit">
+      <ion-select-option value="Salbutamol">Salbutamol</ion-select-option>
+      <ion-select-option value="Sertraline">Sertraline</ion-select-option>
+      <ion-select-option value="Amoxocillin">Amoxocillin</ion-select-option>
+      <ion-select-option value="Desogestrel">Desogestrel</ion-select-option>
+    </ion-select>
+  </ion-item>
+</div>
+<div *ngIf="medicationAddedBool && selectedMeds" >
+  <div *ngIf="!submitBool">
+    For each medication, please select how often you take the medication per day.
+    <div>If you have a preference of when to take the medication please select</div>
+    <div>If it is more than once a day, we will split the dosage over the day</div>
+    <div *ngFor="let meds of medications">
+      {{meds}}:
+      <ion-item>
+        <ion-label>Frequency</ion-label>
+        <ion-select [(ngModel)]="Frequency" cancelText="Cancel" okText="Submit">
+          <ion-select-option value="{{meds}}One">One</ion-select-option>
+          <ion-select-option value="{{meds}}Two">Two</ion-select-option>
+          <ion-select-option value="{{meds}}Three">Three</ion-select-option>
+          <ion-select-option value="{{meds}}Four">Four</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Time</ion-label>
+        <ion-select [(ngModel)]="Time" cancelText="Cancel" okText="Submit">
+          <ion-select-option value="{{meds}}Morning">Morning</ion-select-option>
+          <ion-select-option value="{{meds}}Afternoon">Afternoon</ion-select-option>
+          <ion-select-option value="{{meds}}Evening">Evening</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+    <ion-button (click)="submitBool=true">Submit</ion-button>
+  </div>
+  <div *ngIf="submitBool"> 
+    Current Medication:
+    {{medications}}
+    <ion-button>Edit Medication</ion-button>
+    <div><i>More Coming Soon....</i></div>
+  </div>
+</div>
 </ion-content>
