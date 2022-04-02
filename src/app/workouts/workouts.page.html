@@ -1,9 +1,53 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>workouts</ion-title>
-  </ion-toolbar>
+    <ion-title>Workout</ion-title>
 </ion-header>
 
 <ion-content>
+<div *ngIf="!continueBool">
+  <ion-icon></ion-icon>
+  <div (click)="tapToContinue()">
+    <div>Before we recommend your workout, we have a couple of questions about your health so you can participate.</div>
+    <div>Tap to Continue.</div>
+  </div>
+</div>
+<div *ngIf="continueBool && !levelBool">
+  What level of fitness do you have?
+  <ion-button (click)="saveBeginnerLevel()">Beginner</ion-button>
+  <ion-button (click)="saveIntermediateLevel()">Intermediate</ion-button>
+  <ion-button (click)="saveAdvancedLevel()">Advanced</ion-button>
+</div>
+<div *ngIf="continueBool && levelBool && !healthNoBool &&!healthYesBool">
+  Do you have any health issues that limit your physical ability?
+  <div>
+    <ion-button (click)="onYes()">Yes</ion-button>
+    <ion-button (click)="onNo()">No</ion-button>
+  </div>
+</div>
 
+<div *ngIf="continueBool && levelBool && (healthYesBool || healthNoBool)">
+<div *ngIf="healthYesBool && !selectedBool">
+  Search for your condition and select from the dropdown
+  <ion-item>
+    <ion-label>Conditions</ion-label>
+    <ion-select (ionChange)="selectedConditions()" [(ngModel)]="conditions" multiple="true" cancelText="Cancel" okText="Submit">
+      <ion-select-option value="Arthritis">Arthritis</ion-select-option>
+      <ion-select-option value="Parkinson's">Parkinson's</ion-select-option>
+      <ion-select-option value="Diabetes">Diabetes</ion-select-option>
+      <ion-select-option value="High Blood Pressure">High Blood Pressure</ion-select-option>
+    </ion-select>
+  </ion-item>
+</div>
+
+<div *ngIf="selectedBool || healthNoBool">
+  <div><b>Level:</b> {{this.level}}
+  </div>
+  <div *ngIf="!healthNoBool">
+  <b>Conditions:</b> {{this.conditions}}
+  </div>
+  <div *ngIf="healthNoBool">No health conditions</div>
+  <div>Based on the above information, here are the workouts we suggest for you:</div>
+  <img src="./../../assets/lowImpact.png">
+  <img src="./../../assets/getFit.png">
+</div>
+</div>
 </ion-content>

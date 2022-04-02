@@ -1,9 +1,6 @@
 <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 <ion-header>
-  <ion-toolbar>
     <ion-title>Home</ion-title>
-  </ion-toolbar>
-  
 </ion-header>
 
 <ion-content>
@@ -12,22 +9,7 @@
       <ion-col>
         <ion-button class="nextLine" href='/medication' >
           <ion-icon name="medkit-outline"></ion-icon>
-          <br><ion-label>Medication</ion-label>
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button class="nextLine" href='/braintraining' >
-          <ion-icon name="extension-puzzle-outline"></ion-icon>
-          <br><ion-label>Brain Training</ion-label>
-        </ion-button>
-      </ion-col>
-
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-button class="nextLine" href='/schedule' >
-          <ion-icon name="calendar-outline"></ion-icon>
-          <br><ion-label>Schedule</ion-label>
+          <ion-label>Medication</ion-label>
         </ion-button>
       </ion-col>
       <ion-col>
@@ -36,30 +18,46 @@
           <br><ion-label>Workouts</ion-label>
         </ion-button>
       </ion-col>
-    </ion-row>
+          </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button class="nextLine" href='/social' >
-          <ion-icon name="person"></ion-icon>
-          <br><ion-label>Social</ion-label>
+        <ion-button class="nextLine" href='/schedule' >
+          <ion-icon name="calendar-outline"></ion-icon>
+          <br><ion-label>Schedule</ion-label>
         </ion-button>
       </ion-col>
+      <ion-col>
+        <ion-button class="nextLine" href='/braintraining' >
+          <ion-icon name="extension-puzzle-outline"></ion-icon>
+          <br><ion-label>Brain Training</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+
       <ion-col>
         <ion-button class="nextLine" href='/guidance' >
           <ion-icon name="book-outline"></ion-icon>
           <br><ion-label>Tech Tips</ion-label>
         </ion-button>
       </ion-col>
-    </ion-row>
-    <ion-row>
       <ion-col>
         <ion-button class="nextLine" href='/events' >
           <ion-icon name="navigate-circle-outline"></ion-icon>
           <br><ion-label>Local Events</ion-label>
         </ion-button>
       </ion-col>
+    </ion-row>
+    <ion-row>
+
       <ion-col>
-        <ion-button class="nextLine" href='/activities' >
+        <ion-button disabled="true" class="nextLine" href='/social' >
+          <ion-icon name="person"></ion-icon>
+          <br><ion-label>Social</ion-label>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button disabled="true" class="nextLine" href='/activities' >
           <ion-icon name="accessibility-outline"></ion-icon>
           <br><ion-label>Activities</ion-label>
         </ion-button>

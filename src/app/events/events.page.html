@@ -1,9 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>events</ion-title>
-  </ion-toolbar>
+    <div *ngIf="!enteredBool"><ion-title>Events</ion-title></div>
+    <div *ngIf="enteredBool"><ion-title>Events in {{postcode}}</ion-title></div>
 </ion-header>
 
 <ion-content>
-
+  <div *ngIf="!enteredBool">
+    <p>Enter your postcode to see events in your area you might be interested in.</p>
+    Enter your Postcode:
+    <ion-input placeholder="Enter your postcode" [(ngModel)]="postcode"></ion-input>
+    <ion-button (click)="postcodeEntered()">Next</ion-button>
+  </div>
+  <div *ngIf="enteredBool">
+    <div>Car Boot Sale</div>
+    <div>French Food Market</div>
+    <div>Over 50s Zumba</div>
+  </div>
 </ion-content>
